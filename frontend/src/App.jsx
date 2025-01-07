@@ -8,7 +8,7 @@ const App = () => {
 
   // GET: all products
   useEffect(() => {
-    axios.get("http://localhost:3000/get")
+    axios.get("http://localhost:3000/")
       .then((response) => {
         setProducts(response.data);
       })

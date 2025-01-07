@@ -8,7 +8,7 @@ const App = () => {
 
   // GET: all products
   useEffect(() => {
-    axios.get("http://localhost:3000/")
+    axios.get("https://myfirstserver-kdha.onrender.com")
       .then((response) => {
         setProducts(response.data);
       })
@@ -18,7 +18,7 @@ const App = () => {
   // POST: add new product
 const addProduct = async () => {
   try {
-    const response = await axios.post("http://localhost:3000/post", newProduct);
+    const response = await axios.post("https://myfirstserver-kdha.onrender.com/post", newProduct);
     setProducts([...products, response.data]);
     setNewProduct({ name: "", price: "" });
   } catch (error) {
@@ -29,7 +29,7 @@ const addProduct = async () => {
 
   // PUT: update product
   const updateProduct = () => {
-    axios.put(`http://localhost:3000/put/${editProduct.id}`, { name: editProduct.name, price: editProduct.price })
+    axios.put(`https://myfirstserver-kdha.onrender.com/put/${editProduct.id}`, { name: editProduct.name, price: editProduct.price })
       .then(() => {
         setProducts(products.map(product => product.id === editProduct.id ? { ...product, name: editProduct.name, price: editProduct.price } : product));
         setEditProduct({ id: "", name: "", price: "" });
@@ -39,7 +39,7 @@ const addProduct = async () => {
 
   // DELETE: delete product
   const deleteProduct = (id) => {
-    axios.delete(`http://localhost:3000/delete/${id}`)
+    axios.delete(`https://myfirstserver-kdha.onrender.com/delete/${id}`)
       .then(() => {
         setProducts(products.filter(product => product.id !== id));
       })

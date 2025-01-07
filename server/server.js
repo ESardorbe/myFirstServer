@@ -7,7 +7,10 @@ const {v4} = require("uuid")
 const app = express()
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: "https://your-frontend-site.onrender.com", // Frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE"]
+  }));
 
 //Funksiyalar
 const readFile = (file_name) => {

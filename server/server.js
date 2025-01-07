@@ -19,7 +19,7 @@ const writeFile = (file_name, data) => {
 }
 
 //GET
-app.get('/get', (req, res) => {
+app.get('/', (req, res) => {
     const data = readFile("data.json");
     res.json(data);
 });
